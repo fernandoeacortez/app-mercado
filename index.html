@@ -1,20 +1,93 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>App Mercado</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mercadinho do Bairro</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>App Mercado</h1>
-        <div class="form">
-            <input type="text" id="name" placeholder="Nome do produto">
-            <input type="number" id="price" placeholder="Preço">
-            <button onclick="addProduct()">Adicionar</button>
-        </div>
-        <div id="products"></div>
+  <header id="inicio">
+    <h1>Mercadinho do Bairro 🛒</h1>
+    <div class="contato-topo">
+      <p>📞 (45) 99999-0000 | ⏰ Seg a Sáb – 8h às 18h</p>
     </div>
-    <script src="script.js"></script>
+    <p class="slogan">Produtos frescos, preços justos e atendimento com carinho!</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><button data-target="inicio">Início</button></li>
+      <li><button data-target="promocoes">Ofertas</button></li>
+      <li><button data-target="contato">Contato</button></li>
+      <li><button id="btn-estoque">Estoque</button></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="promocoes">
+      <h2>🌟 Promoções da Semana</h2>
+      <div class="produto">
+        <img src="banana.jpg" alt="Banana Prata">
+        <p><strong>Banana Prata</strong> – R$2,99/kg</p>
+      </div>
+      <div class="produto">
+        <img src="arroz.jpg" alt="Arroz 5kg">
+        <p><strong>Arroz 5kg</strong> – R$19,90</p>
+      </div>
+      <div class="produto">
+        <img src="detergente.jpg" alt="Detergente Ypê">
+        <p><strong>Detergente Ypê</strong> – R$1,25</p>
+      </div>
+      <div class="produto">
+        <img src="leite.jpg" alt="Leite Integral 1L">
+        <p><strong>Leite Integral 1L</strong> – R$4,50</p>
+      </div>
+    </section>
+
+    <section id="contato">
+      <h2>📞 Contato</h2>
+      <p>Telefone: (45) 99999-0000</p>
+      <p>Horário: Seg a Sáb – 8h às 18h</p>
+    </section>
+
+    <!-- Tela Estoque -->
+    <section id="tela-estoque" class="tela-estoque" style="display:none;">
+      <div id="login-estoque" class="modal-estoque">
+        <h2>Login Estoque</h2>
+        <label for="usuario">Usuário:</label>
+        <input type="text" id="usuario" placeholder="Digite seu usuário">
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" placeholder="Digite sua senha">
+        <button id="btn-login">Entrar</button>
+        <p id="erro-login" style="color:red; display:none;">Usuário ou senha incorretos!</p>
+      </div>
+
+      <div id="sistema-estoque" style="display:none; margin-top:20px;">
+        <h2>📦 Controle de Estoque</h2>
+        <label for="busca-produto">Código ou Descrição do Produto:</label>
+        <input type="text" id="busca-produto" placeholder="Digite o código ou nome">
+        <button id="btn-buscar">Buscar</button>
+
+        <div id="info-produto" style="margin-top:20px; display:none;">
+          <img id="img-produto" src="" alt="Imagem do produto" style="width:150px; margin-bottom:10px;">
+          <p><strong>Código:</strong> <span id="codigo-produto"></span></p>
+          <p><strong>Produto:</strong> <span id="nome-produto"></span></p>
+          <p><strong>Quantidade em estoque:</strong> <span id="quantidade-produto"></span></p>
+          <p><strong>Valor de compra:</strong> R$ <span id="valor-compra"></span></p>
+          <p><strong>Valor de venda:</strong> R$ <span id="valor-venda"></span></p>
+          <p><strong>Previsão de venda:</strong> Diário: <span id="venda-diaria"></span>, Semanal: <span id="venda-semanal"></span>, Mensal: <span id="venda-mensal"></span></p>
+          <p><strong>Próxima entrega:</strong> <span id="proxima-entrega"></span></p>
+          <p><strong>Fornecedor:</strong> <span id="fornecedor"></span></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mercadinho do Bairro. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
